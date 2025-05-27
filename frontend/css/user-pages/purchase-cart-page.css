@@ -3,6 +3,9 @@ body {
   background-color: #f5f5f5;
   margin: 0;
   padding: 20px;
+  background-image: url(/resources/PAPEL-TAPIZ-PANADERIA.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 #purchase-container {

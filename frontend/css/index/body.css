@@ -42,9 +42,26 @@ body {
   color: aliceblue;
 }
 
-.conteiner-button {
-  margin-left: 20px;
+.conteiner-info{
+  position: relative;
+  left: 400px;
+  width: auto;
+  height: 30%;
+  top: 70px;
 }
+
+.conteiner-button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  gap: 15px ;
+  width: 350px;
+  height: 60px;
+  top: 60px;
+  left: 30px;
+}
+
 .button {
   background-color: #e5eaf3;
   border-radius: 80px;
@@ -55,7 +72,7 @@ body {
   text-align: center;
   text-decoration: none;
   border: 0;
-  font-size: 16px;
+  font-size: 19px;
   user-select: none;
 }
 

@@ -31,10 +31,15 @@ body{
 
 .container_logo{
     position: relative;
-    top: 20px;
+    top: 9px;
     display: inline-block;
     height: 40px;
     left: 60px;
+    width: 200px;
+}
+
+.img_logo{
+    width: 200px;
 }
 
 .user-info{

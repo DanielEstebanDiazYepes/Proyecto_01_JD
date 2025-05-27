@@ -1,0 +1,172 @@
+/* /css/footer.css */
+
+.footer {
+    background-color: #333; /* Un gris oscuro para el fondo */
+    color: #fff; /* Texto blanco */
+    padding: 40px 0; /* Espaciado interno superior e inferior */
+    font-family: 'Montserrat', sans-serif; /* Usamos la misma fuente que ya tienes */
+    font-size: 1rem; /* Tamaño de fuente base */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    border-top: 5px solid #f1c586; /* Un borde superior para destacarlo, puedes cambiar el color */
+}
+
+.footer-content {
+    display: flex; /* Para organizar las secciones en columnas */
+    justify-content: space-around; /* Distribuye el espacio entre las secciones */
+    flex-wrap: wrap; /* Permite que las secciones se envuelvan en pantallas pequeñas */
+    max-width: 1200px; /* Ancho máximo del contenido del footer */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 0 20px; /* Espaciado a los lados */
+}
+
+.footer-section {
+    flex: 1; /* Cada sección ocupa el mismo espacio */
+    min-width: 250px; /* Ancho mínimo para que no se superpongan */
+    margin: 20px; /* Margen alrededor de cada sección */
+}
+
+.footer-section h3 {
+    color: #f1c586; /* Color distintivo para los títulos de sección */
+    margin-bottom: 25px; /* Espacio debajo del título */
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.footer-section p {
+    margin-bottom: 15px;
+}
+
+/* Estilos para la sección de contacto */
+.footer-section .contact span {
+    display: block; /* Cada elemento de contacto en una nueva línea */
+    margin-bottom: 10px;
+}
+
+.footer-section .contact i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+    color: #f1c586; /* Color para los íconos */
+}
+
+/* NUEVA SECCIÓN: Contenedor para centrar los iconos sociales */
+.footer-section .socials {
+    text-align: center; /* Centra el contenido en línea (los <a>) */
+    margin-top: 20px; /* Un poco de espacio arriba si es necesario */
+}
+
+/* Estilos para las redes sociales */
+.footer-section .socials a {
+    display: inline-block; /* Para que los iconos estén en línea */
+    width: 40px;
+    height: 40px;
+    background-color: #555; /* Fondo más claro para los iconos */
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%; /* Iconos circulares */
+    margin: 0 5px; /* <-- AJUSTADO: Margen uniforme a ambos lados */
+    transition: background-color 0.3s ease; /* Suave transición al pasar el ratón */
+}
+
+.socials a {
+    position: relative;
+    top: 10px;
+}
+
+.footer-section .socials a:hover {
+    background-color: #f1c586; /* Color al pasar el ratón */
+    color: #333; /* Texto oscuro al pasar el ratón */
+}
+
+/* Estilos para los enlaces */
+.footer-section.links ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+.footer-section.links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.links ul li a {
+    color: #fff;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    transition: color 0.3s ease;
+}
+
+.footer-section.links ul li a:hover {
+    color: #e7aa53; /* Color al pasar el ratón */
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Estilos para el formulario de contacto */
+.footer-section.contact-form .text-input {
+    width: calc(100% - 20px); /* Ancho completo menos el padding */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer-section.contact-form textarea.text-input {
+    min-height: 80px; /* Altura mínima para el área de texto */
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+.footer-section.contact-form .text-input::placeholder {
+    color: #ccc; /* Color del placeholder */
+}
+
+.footer-section.contact-form .btn.contact-btn {
+    display: inline-block;
+    background-color: #f1c586;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-section.contact-form .btn.contact-btn:hover {
+    background-color: #e7aa53; /* Un tono más oscuro al pasar el ratón */
+    color: #000;
+}
+
+/* Estilos para la parte inferior del footer (copyright) */
+.footer-bottom {
+    background-color: #222; /* Un gris aún más oscuro para el copyright */
+    color: #aaa;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px; /* Espacio entre el contenido principal del footer y el copyright */
+    font-size: 0.9rem;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Apila las secciones en columnas en pantallas pequeñas */
+        align-items: center; /* Centra las secciones */
+    }
+
+    .footer-section {
+        margin: 20px 0; /* Ajusta el margen */
+        text-align: center; /* Centra el texto en secciones */
+    }
+
+    .footer-section .contact span {
+        text-align: left; /* Mantener texto de contacto alineado a la izquierda */
+        display: inline-block; /* Para que los iconos queden junto al texto */
+        margin-left: 10px;
+    }
+    /* Esta regla ya no es tan crítica aquí, la movimos arriba para un comportamiento general */
+    /* .footer-section .socials {
+        text-align: center;
+    } */
+    .footer-section.links ul {
+        text-align: center;
+    }
+}
