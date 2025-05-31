@@ -1,6 +1,4 @@
-// frontend/js/user/favorite.js
 
-// Asumiendo que createMenuIcon está definido en este mismo archivo o en otro cargado antes
 const createMenuIcon = (prod) => {
     const menu = document.createElement("div");
     menu.className = "menu-icon";
@@ -22,7 +20,7 @@ const createMenuIcon = (prod) => {
         const isDefault = cartIcon.getAttribute("data-state") === "default"; // SE USA EL ATRIBUTO DATA-STATE PARA SABER SI EL ICONO ES DEFAULT O NO
         cartIcon.textContent = isDefault ? "shopping_cart_off" : "shopping_cart";//SI EL ATRIBUTO ES DEFAULT CAMBIA EL ICONO A shopping_cart_off Y SI NO CAMBIA A shopping_cart
         cartIcon.setAttribute("data-state", isDefault ? "off" : "default");
-        // Lógica para agregar/eliminar del carrito
+        
         console.log(`Carrito: ${prod._id} - ${isDefault ? 'añadido' : 'eliminado'}`);
         // Puedes llamar a tu API de carrito aquí
     });
@@ -117,8 +115,8 @@ const loadAllFavorites = async () => {
         if (data.success) {
             renderFavorites(data.favorites);
         } else {
-            console.error("Error al obtener favoritos (API):", data.message || "Error desconocido");
-            document.getElementById("favorites-container").innerHTML = "<p>No se pudieron cargar los favoritos.</p>";
+            alert("INICIA SESION PARA PODER VER TUS PRODUCTOS FAVORITOS");
+            window.location.href = "/pages/auth/login.html";
         }
     } catch (err) {
         console.error("Error al cargar favoritos (fetch):", err);
@@ -136,16 +134,6 @@ function handleFavoriteSearch(searchTerm) {
         return;
     }
 
-    // Aquí deberías realizar la búsqueda entre tus favoritos, no en todos los productos
-    // Opcional: Si tu backend tiene una ruta para buscar *dentro* de los favoritos de un usuario, úsala.
-    // Ejemplo: /api/favorites/search?q=searchTerm
-    // Por ahora, asumiremos que filtras los ya cargados o que la API de favoritos ya maneja la búsqueda.
-    // Si tu API `/api/favorites` no permite buscar, tendrías que cargar todos y filtrar en el cliente.
-    // Para simplificar, haré una simulación de filtrado aquí si tu API de favoritos no tiene búsqueda integrada.
-    // Si tu API de favoritos PUEDE filtrar, reemplaza esto:
-    
-    // SIMULACIÓN DE FILTRADO EN CLIENTE (si tu /api/favorites NO tiene búsqueda)
-    // Esto es menos eficiente para muchos favoritos, idealmente el backend filtra.
     loadAllFavorites().then(() => {
         const allLoadedFavorites = Array.from(favoritesContainer.children).map(child => {
             // Extrae la información del producto de la tarjeta para filtrar
@@ -166,33 +154,12 @@ function handleFavoriteSearch(searchTerm) {
             favoritesContainer.innerHTML = "<p>No se encontraron favoritos que coincidan con la búsqueda.</p>";
         }
     });
-
-    // CÓDIGO ALTERNATIVO SI TU BACKEND SOPORTA BÚSQUEDA ESPECÍFICA EN FAVORITOS:
-    /*
-    fetch(`/api/favorites/search?q=${encodeURIComponent(searchTerm)}`, { credentials: "include" })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                renderFavorites(data.favorites); // renderiza los favoritos filtrados por el backend
-            } else {
-                console.error("Error al buscar favoritos en API:", data.message || "Error desconocido");
-                favoritesContainer.innerHTML = "<p>Error al buscar favoritos.</p>";
-            }
-        })
-        .catch(err => {
-            console.error("Error en fetch de búsqueda de favoritos:", err);
-            favoritesContainer.innerHTML = "<p>Error en la búsqueda.</p>";
-        });
-    */
 }
-
 
 // --- DELEGACIÓN DE EVENTOS PARA LA BARRA DE BÚSQUEDA DEL NAVBAR DINÁMICO ---
 // Escucha en el 'document' para el formulario con id 'search-form'
 document.addEventListener('submit', (event) => {
-    // Asegúrate de que el evento venga de un formulario con el ID 'search-form'
-    // Y que esté dentro del #navbar-container si quieres ser súper específico,
-    // pero como los IDs son únicos por definición, `event.target.id === 'search-form'` es suficiente.
+
     if (event.target && event.target.id === 'search-form') {
         event.preventDefault(); // Evitar el envío tradicional del formulario
         

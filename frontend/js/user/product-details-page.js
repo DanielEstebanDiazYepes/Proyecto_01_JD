@@ -27,6 +27,9 @@ async function fetchProductDetails() {
     window.location.href = `/pages/user/purchase-page.html?productId=${productId}`;//LLEVNAOD EL PRODUCTO A LA PAGINA DE COMPRA
 });
 
+    document.getElementById("button-cancel-purchase").addEventListener("click", () => {
+    window.location.href = "/";
+    });
 }
 
 document.addEventListener("DOMContentLoaded", fetchProductDetails);

@@ -1,6 +1,3 @@
-// frontend/js/user/cartUser.js
-
-// Asumiendo que createMenuIcon está definido en este mismo archivo o en otro cargado antes
 const createMenuIcon = (prod) => {
     const menu = document.createElement("div");
     menu.className = "menu-icon";
@@ -65,7 +62,6 @@ const createMenuIcon = (prod) => {
     return menu;
 };
 
-// Función para renderizar los productos del carrito
 const renderCartProducts = (products) => {
     const container = document.getElementById("car-products-container");
     container.innerHTML = ""; // Limpiar contenedor
@@ -111,9 +107,9 @@ const loadAllCartProducts = async () => {
         const data = await res.json();
         if (data.success) {
             renderCartProducts(data.cart); // Llama a la función para renderizar
-        } else {
-            console.error("Error al obtener carrito (API):", data.message || "Error desconocido");
-            document.getElementById("car-products-container").innerHTML = "<p>No se pudieron cargar los productos del carrito.</p>";
+        }else {
+            alert("INICIA SESION PARA PODER VER TU CARRITO");
+            window.location.href = "/pages/auth/login.html";
         }
     } catch (err) {
         console.error("Error al cargar carrito (fetch):", err);

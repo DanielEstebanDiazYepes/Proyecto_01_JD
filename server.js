@@ -25,7 +25,10 @@ app.use(cors({
   origin: "http://localhost:5000", // Middleware para permitir solicitudes desde otros dominios (Frontend)
   credentials: true
 })); 
-app.use(express.json()); // Middleware para leer JSON en las peticiones
+
+app.use(express.json({ limit: '50mb' })); // Middleware para leer JSON en las peticiones
+
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(cookieParser()); // Middleware para leer cookies
 app.use(session({

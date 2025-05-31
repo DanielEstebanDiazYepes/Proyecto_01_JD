@@ -22,9 +22,13 @@ async function loadPurchasePage() {
     document.getElementById("total-price").textContent = `$${product.price}`;
     document.getElementById("final-total").textContent = `$${product.price}`;
 
-    // CARGAMOS LOS DATOS DEL USUARIO
+    if(!user || !user.email) {// CREAMOS UN IF RAPIDO DONDE SI EL USUARIO NO ESTA LOGEADO LO MANDA A INICIAR SESION
+      window.location.href = "/pages/auth/login.html";
+      return;
+    }else{// CARGAMOS LOS DATOS DEL USUARIO EN EL FORMULARIO SI SE CUMPLE LA CONDICION
     document.getElementById("user-address").value = user.address;
     document.getElementById("user-phone").value = user.phone;
+    }
 
     // CARGAMOS LOS DATOS DEL FORMULARIO HACIENDO QUE SE ACTUALIZE EL PRECIO TOTAL
     const quantityInput = document.getElementById("quantity");

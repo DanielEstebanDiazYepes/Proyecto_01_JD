@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => { //CODIGO PARA MOSTRA
         document.getElementById("phone").value = user.phone || "xxx";
         document.getElementById("email").value = user.email || "";
       } else {
-        alert("Debes iniciar sesión para ver esta página");
+        alert("INICIA SESION PARA PODER VER TU PERFIL");
         window.location.href = "/pages/auth/login.html";
       }
     } catch (error) {
